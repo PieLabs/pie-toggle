@@ -1,4 +1,7 @@
 {
+  "langs": [
+    "en-US"
+  ],
   "elements": {
     "pie-toggle": "../.."
   },
@@ -6,7 +9,11 @@
     {
       "id": "1",
       "element": "pie-toggle",
-      "answer": true
+      "answer": true,
+      "feedback": {
+        "correct": "Correct!",
+        "incorrect": "Incorrect!"
+      }
     }
   ]
 }
