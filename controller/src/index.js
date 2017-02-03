@@ -1,7 +1,12 @@
 export function outcome(question, session) {
 
   return new Promise((resolve) => {
-    resolve({});
+    var correct = (session.answer === question.answer);
+    resolve({
+      score: {
+        scaled: correct ? 1 : 0
+      }
+    });
   });
 
 }

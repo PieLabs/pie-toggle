@@ -6,7 +6,7 @@
     {
       "id": "1",
       "element": "pie-toggle",
-      "message": "hello, PIE"
+      "answer": true
     }
   ]
 }
