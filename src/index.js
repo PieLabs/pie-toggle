@@ -1,3 +1,5 @@
+require('./index.less');
+
 export default class Toggle extends HTMLElement {
 
   constructor() {
@@ -13,6 +15,9 @@ export default class Toggle extends HTMLElement {
 
   set session(s) {
     this._session = s;
+    if (!this._session.answer) {
+      this._session.answer = false;
+    }
     this._rerender();
   }
 
@@ -20,12 +25,18 @@ export default class Toggle extends HTMLElement {
     return this._session;
   }
 
-  _message() {
-    return this._model ? this._model.message : 'hello, world';
-  }
-
   _rerender() {
-    this.innerHTML = `<div>${this._message()}</div>`;
+    let checked = this._session ? this._session.answer : false;
+
+    this.innerHTML = `
+      <label class="switch">
+        <input type="checkbox" ${checked ? 'checked=""' : ''}>
+        <div class="slider round"></div>
+      </label>`;
+
+    this.querySelector('input').addEventListener('change', (e) => {
+      this._session.answer = e.target.checked;
+    });
   }
 
   connectedCallback() {
