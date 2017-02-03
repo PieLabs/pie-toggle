@@ -5,7 +5,8 @@
   "models": [
     {
       "id": "1",
-      "element": "pie-toggle"
+      "element": "pie-toggle",
+      "message": "hello, PIE"
     }
   ]
 }
