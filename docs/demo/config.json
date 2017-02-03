@@ -1,0 +1,11 @@
+{
+  "elements": {
+    "pie-toggle": "../.."
+  },
+  "models": [
+    {
+      "id": "1",
+      "element": "pie-toggle"
+    }
+  ]
+}
