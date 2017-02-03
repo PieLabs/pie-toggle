@@ -26,13 +26,16 @@ export default class Toggle extends HTMLElement {
   }
 
   _rerender() {
+    let feedback = (model && model.feedback) ? `<div class="feedback">${model.feedback}</div>` : '';
+
     let checked = this._session ? this._session.answer : false;
 
     this.innerHTML = `
       <label class="switch">
         <input type="checkbox" ${checked ? 'checked=""' : ''}>
         <div class="slider round"></div>
-      </label>`;
+      </label>
+      ${feedback}`;
 
     this.querySelector('input').addEventListener('change', (e) => {
       this._session.answer = e.target.checked;

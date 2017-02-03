@@ -14,7 +14,13 @@ export function outcome(question, session) {
 export function model(question, session, env) {
 
   return new Promise((resolve) => {
-    resolve(question);
+    var response = {};
+    if (env.mode === 'evaluate') {
+      let correct = session && session.answer && session.answer === question.answer;
+      response.result = correct;
+      response.feedback = correct ? question.feedback.correct : question.feedback.incorrect;
+    }
+    resolve(response);
   });
 
 }
